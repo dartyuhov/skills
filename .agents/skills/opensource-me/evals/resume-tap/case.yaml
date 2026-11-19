@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: resume-tap
+expected_outcome: |
+  Independently verify the existing public release and retry only the tap
+  update after validation. Preserve published assets, explain ad-hoc signing,
+  and require qualifying PR check evidence beyond workflow_dispatch.

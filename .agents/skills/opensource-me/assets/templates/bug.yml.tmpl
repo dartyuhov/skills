@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a reproducible problem.
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version and installation route
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Operating system, architecture, and relevant host version
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Include minimal input, expected behavior, and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Remove credentials and personal information from logs.

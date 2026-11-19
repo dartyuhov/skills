@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: preserve-automation
+expected_outcome: |
+  The read-only audit preserves Apache-2.0, Changesets, npm publishing, existing
+  CI, and protection; it identifies documentation gaps and unknown hosted facts.

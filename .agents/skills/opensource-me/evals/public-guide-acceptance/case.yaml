@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: public-guide-acceptance
+expected_outcome: |
+  Follow the guide from anonymous exact-release downloads in a clean environment,
+  preserve certificate identity and account state, verify signing/install/first
+  use and upgrade separately with viewer evidence, and record guide defects and
+  blocked destructive fresh-install coverage without claiming CI proves native use.

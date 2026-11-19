@@ -1,0 +1,20 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: ["{{DEFAULT_BRANCH}}"]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: "{{RUNNER_LABEL}}"
+    steps:
+      - uses: actions/checkout@{{CHECKOUT_ACTION_SHA}}
+        with:
+          persist-credentials: false
+      - name: Set up project toolchain
+        run: |
+          {{VERIFIED_SETUP_COMMANDS}}
+      - name: Verify
+        run: |
+          {{VERIFIED_CHECK_COMMANDS}}

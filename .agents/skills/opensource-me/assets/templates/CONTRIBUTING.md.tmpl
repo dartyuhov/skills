@@ -1,0 +1,28 @@
+# Contributing
+
+Use issues to describe reproducible problems or proposed changes before large
+implementation work.
+
+## Local checks
+
+Run the same checks used by CI before opening a pull request.
+
+{{VERIFIED_SETUP_BUILD_AND_TEST_INSTRUCTIONS}}
+
+## Pull requests
+
+Describe the user-visible change, link relevant issues, and include verification
+results. Keep unrelated changes separate.
+
+Use a Conventional Commit PR title, such as `fix: handle an empty configuration`
+or `feat(settings): add a reset action`. Mark breaking changes with `!` and
+describe the migration in the PR body. Maintainers use squash merges with the
+reviewed PR title as the commit subject.
+
+## Releases
+
+{{ACTUAL_RELEASE_AND_VERSIONING_PROCESS}}
+
+For new Release Please setups, maintainers review and merge release PRs. Merging
+a release PR isn't evidence that public artifacts or installation have passed
+verification.

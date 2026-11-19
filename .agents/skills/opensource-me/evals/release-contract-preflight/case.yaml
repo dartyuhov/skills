@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: release-contract-preflight
+expected_outcome: |
+  Inspect the reference automation rather than preserve manual orchestration by
+  default. Capture merge-to-release-PR and merge-to-auto-publication with scoped
+  approval, preserve dirty work, and preflight actual App identity, installation,
+  effective permissions and configuration without exposing or assuming keys.
