@@ -1,0 +1,26 @@
+name: Skill suggestion
+description: Suggest a new skill or an improvement to an existing one.
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name
+      description: >-
+        Enter the skill's folder name or a working name for a new skill.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Use case and proposed behavior
+      description: >-
+        Describe the task and what the skill would do. Include an example prompt
+        if helpful.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Target host and versions
+      description: >-
+        If relevant, list the host apps and versions the skill needs to support.

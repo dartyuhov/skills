@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Test herdr-handoff
+        run: python3 -B -m unittest discover -s .agents/skills/herdr-handoff/scripts -p test_herdr_handoff.py
+
+      - name: Test opensource-me
+        run: python3 -B -m unittest discover -s .agents/skills/opensource-me/tests -p 'test_*.py'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: '0.11.7'
+          enable-cache: false
+
+      - name: Validate skill specs
+        run: |
+          shopt -s nullglob
+          directories=(.agents/skills/*/)
+          if ((${#directories[@]} == 0)); then
+            echo 'No skill directories found under .agents/skills.' >&2
+            exit 1
+          fi
+
+          status=0
+          for directory in "${directories[@]}"; do
+            uvx --from 'git+https://github.com/agentskills/agentskills.git@83021e2be457a9b6679148719c1f6074f0ad975e#subdirectory=skills-ref' \
+              skills-ref validate "${directory%/}" || status=1
+          done
+          exit "$status"

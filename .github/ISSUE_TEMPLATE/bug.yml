@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a problem with a skill or with the catalog.
+body:
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name
+      description: >-
+        Enter the skill's folder name, or enter "catalog" if the issue
+        isn't specific to a skill.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Host and versions
+      description: >-
+        Include the host app and version, your OS, and the skills revision
+        or any relevant tool versions, if known. Enter "not applicable" if
+        the issue doesn't involve a host.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: >-
+        Include the smallest prompt or command that shows the issue, what
+        you expected, and what happened. Remove private details from examples.
+    validations:
+      required: true
